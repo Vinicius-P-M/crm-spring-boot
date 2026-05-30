@@ -1,0 +1,12 @@
+### Criar um novo Lead
+POST http://localhost:8082/api/leads
+Content-Type: application/json
+
+{
+    "empresa": "lexcorp",
+    "cnpj": "12.375.650/0001-74",
+    "valorContrato": 5000.00
+}
+
+### Listar todos os leads
+GET http://localhost:8082/api/leads
