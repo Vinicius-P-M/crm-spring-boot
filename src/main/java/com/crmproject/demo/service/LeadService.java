@@ -25,6 +25,11 @@ public class LeadService {
         return repository.findAll();
     }
 
+    public Lead buscarPorId(Long id) {
+        return repository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Lead não encontrado com id: " + id));
+    }
+
     // NOVO: Método para atualizar o status de um lead existente
     public Lead atualizarStatus(Long id, StatusLead novoStatus) {
         Lead lead = repository.findById(id)

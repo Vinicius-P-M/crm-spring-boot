@@ -3,6 +3,7 @@ package com.crmproject.demo.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -13,15 +14,16 @@ public class Lead {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "O CNPJ não pode estar vazio")
+    @NotNull(message = "O CNPJ não pode ser nulo")
+    @Pattern(regexp = "\\d{14}", message = "O CNPJ deve conter exatamente 14 dígitos numéricos")
     private String cnpj;
 
     @NotBlank(message = "O nome da empresa não pode estar vazio")
     private String empresa;
 
+    @NotNull(message = "O valor do contrato não pode ser vazio")
     private Double valorContrato;
 
-    @NotNull(message = "O status não pode ser nulo")
     @Enumerated(EnumType.STRING)
     private StatusLead status;
 
@@ -37,9 +39,12 @@ public class Lead {
         this.dataUltimaAtualizacao = LocalDateTime.now(); // Atualiza a data automaticamente
     }
 
-    public void setValorContrato(Double valorContrato) { 
-        this.valorContrato = valorContrato; 
-        this.dataUltimaAtualizacao = LocalDateTime.now(); // Atualiza a data automaticamente
+    public void setCnpj(String cnpj) { this.cnpj = cnpj; }
+    public void setEmpresa(String empresa) { this.empresa = empresa; }
+
+    public void setValorContrato(Double valorContrato) {
+        this.valorContrato = valorContrato;
+        this.dataUltimaAtualizacao = LocalDateTime.now();
     }
 
     // Getters

@@ -22,5 +22,18 @@ public class HistoricoLead {
 
     public HistoricoLead() {}
 
-    // Construtor, getters e setters
+    public HistoricoLead(Lead lead, StatusLead status) {
+        this.lead = lead;
+        this.status = status;
+        this.dataMudanca = LocalDateTime.now();
+    }
+
+    public Long getId() { return id; }
+    public Lead getLead() { return lead; }
+    public StatusLead getStatus() { return status; }
+    public LocalDateTime getDataMudanca() { return dataMudanca; }
+
+    public void setLead(Lead lead) { this.lead = lead; }
+    public void setStatus(StatusLead status) { this.status = status; }
+    public void setDataMudanca(LocalDateTime dataMudanca) { this.dataMudanca = dataMudanca; }
 }
