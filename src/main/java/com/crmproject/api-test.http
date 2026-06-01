@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
     "empresa": "lexcorp",
-    "cnpj": "12.375.650/0001-74",
+    "cnpj": "12375650000174",
     "valorContrato": 5000.00
 }
 
